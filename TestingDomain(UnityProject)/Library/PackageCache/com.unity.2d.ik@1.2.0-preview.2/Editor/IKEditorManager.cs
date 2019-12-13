@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.Experimental.U2D.Common;
+//using UnityEngine.Experimental.U2D.Common;
 using UnityEngine.Experimental.U2D.IK;
 using UnityEngine.Profiling;
 
@@ -454,11 +454,11 @@ namespace UnityEditor.Experimental.U2D.IK
                     {
                         var chain = solver.GetChain(i);
 
-                        if (recordRootLoops)
-                            InternalEngineBridge.SetLocalEulerHint(chain.rootTransform);
+                        //if (recordRootLoops)
+                            //InternalEngineBridge.SetLocalEulerHint(chain.rootTransform);
 
-                        if(solver.constrainRotation && chain.target != null)
-                            InternalEngineBridge.SetLocalEulerHint(chain.effector);
+                        //if(solver.constrainRotation && chain.target != null)
+                            //InternalEngineBridge.SetLocalEulerHint(chain.effector);
                     }
                 }
             }

@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Enemy Bullet
   - Death
+  - NextScene
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     //VARIABLES                             //VARIABLES
@@ -15,10 +14,25 @@ public class Movement : MonoBehaviour
     public float jumpSpeed = 1;             //Speed in which the player jumps
     public int jumpCount = 0;               //How many jumps you've down while in air
     public int maxJumps = 2;                //How many jumps the player can do in the air
+    [Header("Animations Settings")]
+    public Animator animator;
+    [Header("Other Settings/Save Test")]
+    public int emptyInt = 5;
     //UPDATE FUNCTION
     void Update()
     {
         MovementSwitch();
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            print("Saving...");
+            SavePlayerData();
+        }
+        if (Input.GetKeyDown(KeyCode.RightAlt))
+        {
+            print("Loading...");
+            LoadPlayerData();
+        }
+
         //TOP DOWN MOVEMENT
         if (TopDown == true)
         {
@@ -60,6 +74,10 @@ public class Movement : MonoBehaviour
                 grounded = true;
                 jumpCount = 0;
             }
+        }
+        if (collision.gameObject.tag == "NextScene")
+        {
+            FadeToLevel(1);
         }
     }
     //TRIGGER(STAY) FUNCTION
@@ -109,5 +127,33 @@ public class Movement : MonoBehaviour
             TopDown = false;
             Platformer = false;
         }
+    }
+    //FADE FUNCTIONS
+    #region FADE TO LEVEL FUNCTION
+    public void FadeToLevel(int levelIndex)
+    {
+        animator.SetTrigger("FadeOut");
+    }
+    #endregion 
+    #region ON FADE COMPLETE FUNCTION
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene("Testing Domain #5");
+    }
+    #endregion
+    //SAVE FUNCTIONS
+    public void SavePlayerData()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+    public void LoadPlayerData()
+    {
+        Save data = SaveSystem.LoadPlayer();
+        emptyInt = data.emptyIntData;
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
     }
 }

@@ -8,10 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Menu.unity
     guid: 80b87f0b6d814014584712b85c0d813f
-  - enabled: 1
-    path: Assets/Scenes/TestingDomainScenes/Testing (Domain 1).unity
+  - enabled: 0
+    path: Assets/Scenes/TestingDomainScenes/Testing Domain #1.unity
     guid: c1ac4c50b12eac145bd6a400420d5ab8
+  - enabled: 1
+    path: Assets/Scenes/TestingDomainScenes/Testing Domain #4.unity
+    guid: 578039ca9fa6a6240a16eb00ef55626b
+  - enabled: 1
+    path: Assets/Scenes/TestingDomainScenes/Testing Domain #5.unity
+    guid: 9f450591e53f4e3469fb15befaeb4e30
   m_configObjects: {}
