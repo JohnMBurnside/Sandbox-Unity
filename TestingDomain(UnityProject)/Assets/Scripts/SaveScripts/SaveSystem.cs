@@ -1,9 +1,11 @@
-﻿using System.IO;
+﻿using UnityEngine;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using UnityEngine;
 public static class SaveSystem
 {
-    public static void SavePlayer(Movement player)
+    //SAVE FUNCTIONS
+    #region SAVE PLAYER FUNCTION
+    public static void SavePlayer(Player player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.save";
@@ -12,6 +14,8 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close();
     }
+    #endregion
+    #region SAVE FUNCTION
     public static Save LoadPlayer()
     {
         string path = Application.persistentDataPath + "/player.save";
@@ -29,4 +33,5 @@ public static class SaveSystem
             return null;
         }
     }
+    #endregion
 }
