@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -121,6 +121,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &213495843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1373659562901909253, guid: 7f7938304b4af1f439556bccad05e2b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1373659563191553848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &213495846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213495843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52986e25d3bf8c74e95afd975593fe79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  health: 5
+  lives: 3
+  TopDown: 0
+  Platformer: 0
+  TrueTopDown: 0
+  jumpSpeed: 1
+  jumpCount: 0
+  maxJumps: 2
+  prefab: {fileID: 7801264487861659836, guid: dd0538ef816e540468b44bd504f59b43, type: 3}
+  bulletSpeed: 10
+  bulletLifetime: 1
+  shootDelay: 1
+  animator: {fileID: 702942898}
+  animationOn: 0
+  emptyInt: 5
+--- !u!95 &213495849
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213495843}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5dc5d3e960f70d442b669cf2d35abc0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &310278120
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,10 +550,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 702942897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d571739703d2ab044bd75f471e9c00f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a5b01c7ab4d7334fb14153cdeb02252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 702942898}
+  MainMenuSwitch: 0
+  PauseMenuSwitch: 0
+  Fade: 1
 --- !u!1 &852870591
 GameObject:
   m_ObjectHideFlags: 0
@@ -7308,5 +7364,6 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 702942898}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1373659562901909254, guid: 7f7938304b4af1f439556bccad05e2b6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f7938304b4af1f439556bccad05e2b6, type: 3}

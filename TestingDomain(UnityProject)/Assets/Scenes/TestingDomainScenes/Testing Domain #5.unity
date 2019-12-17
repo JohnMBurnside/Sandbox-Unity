@@ -223,7 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d571739703d2ab044bd75f471e9c00f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!95 &304457443
 Animator:
   serializedVersion: 3
@@ -776,9 +775,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1281622081}
   - component: {fileID: 1281622080}
-  - component: {fileID: 1281622079}
   - component: {fileID: 1281622078}
   - component: {fileID: 1281622077}
+  - component: {fileID: 1281622082}
+  - component: {fileID: 1281622079}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -833,26 +833,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1281622079
-MonoBehaviour:
+--- !u!95 &1281622079
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281622076}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40379410641c44b45af67f2a3506e0de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  TopDown: 1
-  Platformer: 0
-  TrueTopDown: 0
-  jumpSpeed: 1
-  jumpCount: 0
-  maxJumps: 2
-  animator: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee61b87218fcf3c4ab971cf6cce616e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1281622080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -917,6 +916,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281622082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281622076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52986e25d3bf8c74e95afd975593fe79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  health: 5
+  lives: 3
+  TopDown: 1
+  Platformer: 0
+  TrueTopDown: 0
+  jumpSpeed: 1
+  jumpCount: 0
+  maxJumps: 2
+  prefab: {fileID: 7801264487861659836, guid: dd0538ef816e540468b44bd504f59b43, type: 3}
+  bulletSpeed: 10
+  bulletLifetime: 1
+  shootDelay: 1
+  animator: {fileID: 1281622079}
+  animationOn: 0
+  emptyInt: 5
 --- !u!1 &1373711024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1047,6 @@ Transform:
   - {fileID: 312866475}
   - {fileID: 1805159694}
   - {fileID: 155484679}
-  - {fileID: 1785989604}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7079,78 +7105,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1785989603
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1785989604}
-  - component: {fileID: 1785989605}
-  m_Layer: 0
-  m_Name: PointLight2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1785989604
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785989603}
-  m_LocalRotation: {x: -0, y: -0, z: -0.91390014, w: -0.4059391}
-  m_LocalPosition: {x: -1.11, y: 6.25, z: 12.628906}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1509746011}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -227.9}
---- !u!114 &1785989605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785989603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LightType: 3
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
-  m_Color: {r: 0, g: 0.9000001, b: 1, a: 1}
-  m_Intensity: 1
-  m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
-  m_UseNormalMap: 0
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 11.877688
-  m_PointLightDistance: 3
-  m_PointLightQuality: 1
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1805159693
 GameObject:
   m_ObjectHideFlags: 0

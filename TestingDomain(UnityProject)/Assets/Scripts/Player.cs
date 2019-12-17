@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     float timer = 0;
     [Header("Animations Settings")]
     public Animator animator;
+    public bool animationOn;
     [Header("Other Settings/Save Test")]
     public int emptyInt = 5;
     #endregion
@@ -53,10 +54,13 @@ public class Player : MonoBehaviour
         //SHOOTING
         Shoot();
         //ANIMATION
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        GetComponent<Animator>().SetFloat("x", x);
-        GetComponent<Animator>().SetFloat("y", y);
+        if(animationOn == true)
+        {
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
+            GetComponent<Animator>().SetFloat("x", x);
+            GetComponent<Animator>().SetFloat("y", y);
+        }
         //SAVING
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
@@ -66,7 +70,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightAlt))
         {
             print("Loading...");
-            LoadPlayerData();
+            //LoadPlayerData();
         }
     }
     #endregion
@@ -87,6 +91,9 @@ public class Player : MonoBehaviour
                 jumpCount = 0;
             }
         }
+        //ANIMATION
+        if (collision.gameObject.tag == "NextScene")
+            FadeToLevel(1);
     }
     #endregion
     #region ON TRIGGER STAY 2D FUNCTION
@@ -110,8 +117,6 @@ public class Player : MonoBehaviour
             if (collision.gameObject.layer == 0)
                 grounded = false;
         }
-        if (collision.gameObject.tag == "NextScene")
-            FadeToLevel(1);
     }
     #endregion
     //MOVEMENT FUNCTIONS
@@ -203,7 +208,7 @@ public class Player : MonoBehaviour
     }
     #endregion
     #region LOAD PLAYER DATA FUNCTION
-    public void LoadPlayerData()
+    /*public void LoadPlayerData()
     {
         Save data = SaveSystem.LoadPlayer();
         emptyInt = data.emptyIntData;
@@ -212,7 +217,7 @@ public class Player : MonoBehaviour
         position.y = data.position[1];
         position.z = data.position[2];
         transform.position = position;
-    }
+    }*/
     #endregion
     //FADE FUNCTIONS
     #region FADE TO LEVEL FUNCTION
@@ -228,4 +233,3 @@ public class Player : MonoBehaviour
     }
     #endregion
 }
-  
