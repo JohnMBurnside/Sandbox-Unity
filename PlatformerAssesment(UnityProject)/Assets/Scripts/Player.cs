@@ -7,10 +7,14 @@ public class Player : MonoBehaviour
     public float jumpSpeed = 5.0f;
     public float fallMultiplier = 5.0f;
     public float lowJumpMultiplier = 2.5f;
+    public bool doubleJump;
     [ReadOnly] public bool grounded;
-    [ReadOnly] public bool doubleJump;
     [ReadOnly] public int jumpCount;
     Rigidbody2D playerRigidbody;
+    [Header("Auto Run Settings")]
+    public int autoRunSpeed = 10;
+    [ReadOnly] public bool autoRunOn;
+    GameObject autoRunText;
     #endregion
     //UNITY FUNCTIONS
     #region START FUNCTION
@@ -19,20 +23,33 @@ public class Player : MonoBehaviour
         //SET JUMP VARIABLES
         playerRigidbody = GetComponent<Rigidbody2D>();
         doubleJump = false;
+        //SET AUTO RUN VARIABLES
+        autoRunText = GameObject.Find("UI/AutoRunAlerts/AutoRunText");
+        autoRunText.SetActive(false);
     }
     #endregion
     #region UPDATE FUNCTION
     void Update()
     {
-        //RUN MOVEMENT
+        //RUN MOVEMENT AND AUTO RUN
         if (Input.GetKey(KeyCode.LeftShift))
             moveSpeed = 7;
         else
             moveSpeed = 5;
-        float moveX = Input.GetAxis("Horizontal");
-        Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
-        velocity.x = moveSpeed * moveX;
-        GetComponent<Rigidbody2D>().velocity = velocity;
+        if (autoRunOn == false)
+        {
+            float moveX = Input.GetAxis("Horizontal");
+            Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
+            velocity.x = moveSpeed * moveX;
+            GetComponent<Rigidbody2D>().velocity = velocity;
+        }
+        else
+        {
+            float moveX = 1.0f;
+            Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
+            velocity.x = autoRunSpeed * moveX;
+            GetComponent<Rigidbody2D>().velocity = velocity;
+        }
         //DOUBLE JUMP AND NORMAL JUMP
         if (Input.GetButtonDown("Jump") && doubleJump == false && grounded == true)
             Jump();
@@ -52,6 +69,12 @@ public class Player : MonoBehaviour
         {
             grounded = true;
             jumpCount = 0;
+        }
+        //AUTO RUN
+        if (collision.gameObject.CompareTag("AutoRun"))
+        {
+            autoRunOn = true;
+            autoRunText.SetActive(true);
         }
     }
     #endregion
