@@ -1,34 +1,22 @@
 fileFormatVersion: 2
-guid: e5494757da613a74c858822e57ef477d
+guid: 49a0193a417a66e4798213a5ef79c227
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7798464054060105521
-    second: Bob_0
+      213: -3838241492584662357
+    second: New Piskel (16)_0
   - first:
-      213: 5339403857101788296
-    second: Bob_1
+      213: -1229759006061639652
+    second: New Piskel (16)_1
   - first:
-      213: -6508348264272542250
-    second: Bob_2
+      213: 4369365396130447957
+    second: New Piskel (16)_2
   - first:
-      213: -2792863790109108783
-    second: Bob_3
+      213: -3289286225547099253
+    second: New Piskel (16)_3
   - first:
-      213: -6357611684034787901
-    second: Bob_4
-  - first:
-      213: -3429789755600822751
-    second: Bob_5
-  - first:
-      213: -7234648989037027534
-    second: Bob_6
-  - first:
-      213: 152685197144519574
-    second: Bob_7
-  - first:
-      213: -49132344706868469
-    second: Bob_8
+      213: -1143546393631106020
+    second: New Piskel (16)_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -72,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,190 +113,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bob_0
+      name: New Piskel (16)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 48
-        height: 48
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a69cd64a4ce7fb4396a96f843472f1b
-      internalID: 7798464054060105521
+      spriteID: 36f62373e2fe64a48b0335f2f4c4c6ed
+      internalID: -3838241492584662357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_1
+      name: New Piskel (16)_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
-        width: 48
-        height: 48
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61b98b413cc69a6438ef2698c45e92cd
-      internalID: 5339403857101788296
+      spriteID: da545e3a7fd3c1b4d9d635bc24de7c9c
+      internalID: -1229759006061639652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 96
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5edd24791b17ee40a0a60abee1ee1a9
-      internalID: -6508348264272542250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bob_3
+      name: New Piskel (16)_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 48
-        height: 48
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cfb7554ecb97eb4690536c0f926b206
-      internalID: -2792863790109108783
+      spriteID: 9b6e14854decdde41b3c0e7853b99a66
+      internalID: 4369365396130447957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_4
+      name: New Piskel (16)_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 48
-        height: 48
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02f21f8da7571154aa0462518ca78af0
-      internalID: -6357611684034787901
+      spriteID: c96dc4e724e5114469916b56fb7c14bd
+      internalID: -3289286225547099253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bob_5
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f618b5bfb51a1c74d84745825703a021
-      internalID: -3429789755600822751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bob_6
+      name: New Piskel (16)_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7ca39a1980dca94d9905a2d3222ced7
-      internalID: -7234648989037027534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bob_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c2eb1d20a54c664b9bd5102076cbb16
-      internalID: 152685197144519574
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bob_8
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1351058ecd4b2f4596342705d1a9cc5
-      internalID: -49132344706868469
+      spriteID: eab3a7b5a679cbe49ba39755bbe53784
+      internalID: -1143546393631106020
       vertices: []
       indices: 
       edges: []
