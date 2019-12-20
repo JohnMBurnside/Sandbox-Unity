@@ -8,6 +8,8 @@ TagManager:
   - Death
   - AutoRunOff
   - Exit
+  - CameraStop
+  - Win
   layers:
   - Default
   - TransparentFX

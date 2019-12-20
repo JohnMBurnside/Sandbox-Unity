@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class Grid2D : MonoBehaviour
+public class GridScript : MonoBehaviour
 {
     #region VARIABLES
     [Header("Parallax Settings")]

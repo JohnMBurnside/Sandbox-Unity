@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Player : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     #region VARAIBLES
     [Header("Movement Settings")]
@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     [ReadOnly] public int jumpCount;
     Rigidbody2D playerRigidbody;
     [Header("Auto Run Settings")]
-    public bool autoRun;
     public int autoRunSpeed = 10;
     [ReadOnly] public bool autoRunOn;
     [ReadOnly] public float textTimer;
@@ -21,12 +20,14 @@ public class Player : MonoBehaviour
     [ReadOnly] public GameObject autoRunOffText;
     [Header("Animation Settings")]
     Animator animator;
-    [Header("Camera Settings")]
-    [ReadOnly] public GameObject mainCamera;
+    [HideInInspector] public bool loadLevel;
+    [Header("Exit Settings")]
+    GameObject mainCamera;
     [ReadOnly] public float cameraX;
     [ReadOnly] public float cameraY;
     [ReadOnly] public float exitTimer;
     bool onExit;
+    bool cameraStop;
     #endregion
     //UNITY FUNCTIONS
     #region START FUNCTION
@@ -105,6 +106,9 @@ public class Player : MonoBehaviour
             else if (x < 0)
                 GetComponent<SpriteRenderer>().flipX = true;
         }
+        //CAMERA STOP
+        if(cameraStop == true)
+            mainCamera.GetComponent<Transform>().position = new Vector3(cameraX, cameraY, -10);
         //EXIT
         if (onExit == true)
             OnExit();
@@ -127,30 +131,30 @@ public class Player : MonoBehaviour
             cameraY = mainCamera.GetComponent<Transform>().position.y;
             onExit = true;
         }
+        if (collision.gameObject.CompareTag("Win"))
+            SceneManager.LoadScene("Win");
         //DEATH TRIGGER
         if (collision.gameObject.CompareTag("Death"))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //AUTO RUN
         if (collision.gameObject.CompareTag("AutoRun"))
         {
-            if(autoRun == true)
-            {
-                if (autoRunOn == false)
-                {
-                    textTimer = 0;
-                    autoRunOn = true;
-                    autoRunText.SetActive(true);
-                }
-            }
+            textTimer = 0;
+            autoRunOn = true;
+            autoRunText.SetActive(true);
         }
         if(collision.gameObject.CompareTag("AutoRunOff"))
         {
-            if(autoRun == true)
-            {
-                textTimer = 0;
-                autoRunOn = false;
-                autoRunOffText.SetActive(true);
-            }
+            textTimer = 0;
+            autoRunOn = false;
+            autoRunOffText.SetActive(true);
+        }
+        //CAMERASTOP
+        if(collision.gameObject.CompareTag("CameraStop"))
+        {
+            cameraX = mainCamera.GetComponent<Transform>().position.x;
+            cameraY = mainCamera.GetComponent<Transform>().position.y;
+            cameraStop = true;
         }
     }
     #endregion
@@ -192,7 +196,7 @@ public class Player : MonoBehaviour
         exitTimer += Time.deltaTime;
         mainCamera.GetComponent<Transform>().position = new Vector3(cameraX, cameraY, -10);
         if (exitTimer > 3)
-            SceneManager.LoadScene("LevelTwo");
+            loadLevel = true;
     }
     #endregion
 }
