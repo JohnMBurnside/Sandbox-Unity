@@ -4,32 +4,17 @@ public class UIScript : MonoBehaviour
 {
     #region VARIABLES
     [Header("General Variables")]
-    public Animator animator;
+    Animator animator;
     string levelToLoad;
-    GameObject player;
+    public GameObject player;
+    bool menuOn;
     #endregion
     //UNITY FUNCTIONS
     #region START FUNCTION
     void Start()
     {
-        try
-        {
-            animator = GetComponent<Animator>();
-        }
-        finally
-        {
-            Debug.Log("Animator Not Found");
-            animator = null;
-        }
-        try
-        {
-            player = GameObject.Find("Player/");
-        }
-        finally
-        {
-            Debug.Log("Player Not Found");
-            player = null;
-        }
+        animator = GetComponent<Animator>();
+        player = GameObject.Find("Player");
     }
     #endregion
     #region UPDATE FUNCTION
