@@ -2,17 +2,27 @@
 public class PlayerCombat : MonoBehaviour
 {
     #region VARIABLES
-    [Header("Damage Settings")]
-    public int attackDamage = 1;
-    [Header("Range Settings")]
+    [Header("Weapon Settings")]
+    public Weapon weapon;
+    [HideInInspector] public int attackDamage;
+    [Header("Melee Range Settings")]
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
+    [Header("Ranged Attack Settings")]
+    public Transform firePoint;
+    public GameObject arrowPrefab;
     [Header("Delay Settings")]
     public float attackRate = 2f;
     float nextAttackTime = 0f;
     #endregion
     //UNITY FUNCTIONS
+    #region START FUNCTION
+    void Start()
+    {
+        attackDamage = weapon.damage;
+    }
+    #endregion
     #region UPDATE FUNCTION
     void Update()
     {
@@ -39,10 +49,17 @@ public class PlayerCombat : MonoBehaviour
     #region ATTACK FUNCTION
     void Attack()
     {
-        //Play attack animation
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-        foreach(Collider2D enemy in enemiesHit)
-            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+        //Melee Attack
+        if(weapon.weaponType == Weapon.Weapons.sword)
+        {
+            //Play attack animation
+            Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            foreach (Collider2D enemy in enemiesHit)
+                enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+        }
+        //Shoot
+        if (weapon.weaponType == Weapon.Weapons.bow)
+            Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
     }
     #endregion
 }

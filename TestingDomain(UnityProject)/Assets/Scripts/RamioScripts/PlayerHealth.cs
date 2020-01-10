@@ -4,14 +4,18 @@ public class PlayerHealth : MonoBehaviour
 {
     #region VARIABLES
     [Header("Hitpoint Settings")]
-    public int health = 5;
+    public int maxHealth = 5;
+    public int currentHealth;
     public int lives;
     [Header("Testing Only")]
     public bool LifeTesting;
     #endregion
+    //UNITY FUNCTIONS
     #region START FUNCTION
     void Start()
     {
+        //Set health variables
+        currentHealth = maxHealth;
         //Set life variables
         lives = PlayerPrefs.GetInt("lives");
     }
@@ -32,8 +36,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "enemy")
         {
-            health--;
-            if(health < 1)
+            currentHealth--;
+            if(currentHealth < 1)
             {
                 PlayerPrefs.SetInt("lives", lives - 1);
                 lives = PlayerPrefs.GetInt("lives");
@@ -43,6 +47,13 @@ public class PlayerHealth : MonoBehaviour
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
+    }
+    #endregion
+    //PLAYER HEALTH FUNCTIONS
+    #region TAKE DAMAGE FUNCTION
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
     }
     #endregion
 }
