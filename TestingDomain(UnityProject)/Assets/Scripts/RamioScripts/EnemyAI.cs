@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     #region VARIABLES
@@ -11,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public Transform firePoint;
     public float engageRange;
     public float attackRate = 2f;
+    public float arrowSpeed = 10f;
     float shootTimer;
     [Header("Movement Settings")]
     public Vector2 moveDir;
@@ -19,22 +19,20 @@ public class EnemyAI : MonoBehaviour
     float moveTimer = 0;
     GameObject player;
     Vector2 chaseDirection;
-    float timer;
+    bool left;
     #endregion
     //UNITY FUNCTIONS
     #region START FUNCTION
     void Start()
     {
         player = GameObject.Find("Player");
+        attackDamage = weapon.damage;
     }
     #endregion
     #region UPDATE FUNCTION
     void Update()
     {
-        timer += Time.deltaTime;
-        moveTimer += Time.deltaTime;
-        if (moveTimer > paceDuration)
-            PaceSwitch();
+        shootTimer += Time.deltaTime;
         try{chaseDirection = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);}
         catch{Debug.LogWarning("Player not found. Try renaming the player to 'Player' with a capital P");}
         if (chaseDirection.magnitude < engageRange)
@@ -42,9 +40,12 @@ public class EnemyAI : MonoBehaviour
         else
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         if (GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Static)
+        {
+            moveTimer += Time.deltaTime;
             GetComponent<Rigidbody2D>().velocity = moveDir * moveSpeed;
-        if (timer > 10)
-            Destroy(gameObject);
+        }
+        if (moveTimer > paceDuration)
+            PaceSwitch();
     }
     #endregion
     #region ON DRAW GIZMO SELECTED FUNCTION
@@ -61,21 +62,26 @@ public class EnemyAI : MonoBehaviour
     #region PACE SWITCH FUNCTION
     void PaceSwitch()
     {
+        left = !left;
         moveDir *= -1;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
         moveTimer = 0;
     }
     #endregion
     #region ATTACK FUNCTION
     void Attack()
     {
-        shootTimer += Time.deltaTime;
-        shootTimer += Time.deltaTime;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         if(shootTimer > attackRate)
         {
-            Instantiate(projectile, firePoint.position, firePoint.rotation);
-            GameObject arrow = GameObject.FindGameObjectWithTag("Enemy Bullet");
-            arrow.GetComponent<EnemyArrowScript>().damage = attackDamage;
+            GameObject arrow = Instantiate(projectile, firePoint.position, firePoint.rotation);
+            if (left == true)
+                arrow.GetComponent<Rigidbody2D>().velocity = (transform.right *= -1) * arrowSpeed;
+            else
+                arrow.GetComponent<Rigidbody2D>().velocity = transform.right * arrowSpeed;
+            arrow.GetComponent<ArrowScript>().attackDamage = attackDamage;
             shootTimer = 0;
         }
     }

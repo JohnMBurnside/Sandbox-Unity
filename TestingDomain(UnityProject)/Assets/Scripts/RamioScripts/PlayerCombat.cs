@@ -4,7 +4,7 @@ public class PlayerCombat : MonoBehaviour
     #region VARIABLES
     [Header("Weapon Settings")]
     public Weapon weapon;
-    [HideInInspector] public int attackDamage;
+    public int attackDamage;
     [Header("Melee Range Settings")]
     public Transform attackPoint;
     public float attackRange = 0.5f;
@@ -13,29 +13,26 @@ public class PlayerCombat : MonoBehaviour
     public Transform firePoint;
     public GameObject arrowPrefab;
     [Header("Delay Settings")]
-    public float attackRate = 2f;
-    float nextAttackTime = 0f;
+    public float attackDelay= 2;
+    public float attackTimer;
+    [Header("Arrow Settings")]
+    public float speed = 10f;
     #endregion
     //UNITY FUNCTIONS
     #region START FUNCTION
     void Start()
-    {
-        attackDamage = weapon.damage;
+    { 
+        if (gameObject.name == "Player" || gameObject.name == "player")
+            attackDamage = weapon.damage;
     }
     #endregion
-    #region UPDATE FUNCTION
     void Update()
     {
-        if(Time.time >= nextAttackTime)
-        {
+        attackTimer += Time.deltaTime;
+        if (attackTimer > attackDelay)
             if(Input.GetKeyDown(KeyCode.Mouse0))
-            {
                 Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
-            }
-        }
     }
-    #endregion
     #region ON DRAW GIZMO SELECTED FUNCTION
     void OnDrawGizmosSelected()
     {
@@ -56,10 +53,18 @@ public class PlayerCombat : MonoBehaviour
             Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
             foreach (Collider2D enemy in enemiesHit)
                 enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+            attackTimer = 0;
         }
         //Shoot
         if (weapon.weaponType == Weapon.Weapons.bow)
-            Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+        {
+            Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+            Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
+            GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+            arrow.GetComponent<Rigidbody2D>().velocity = (mousePosition - firePointPosition) * speed;
+            arrow.AddComponent<ArrowScript>().attackDamage = attackDamage;
+            attackTimer = 0;
+        }
     }
     #endregion
 }

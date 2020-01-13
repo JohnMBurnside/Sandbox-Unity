@@ -2,28 +2,19 @@
 public class ArrowScript : MonoBehaviour
 {
     #region VARIABLES
-    [Header("Arrow Settings")]
-    public float speed = 10f;
-    public int damage;
-    public Rigidbody2D rb;
+    public int attackDamage;
+    float timer = 0;
     #endregion
     //UNITY FUNCTIONS
-    #region START FUNCTION
-    void Start()
+    #region UPDATE FUNCTION
+    void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * speed;
-        GameObject player = GameObject.Find("Player");
-        damage = player.GetComponent<PlayerCombat>().attackDamage;
+        timer += Time.deltaTime;
+        if (timer > 10)
+            Destroy(gameObject);
     }
     #endregion
     #region ON TRIGGER ENTER 2D FUNCTION
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        EnemyHealth enemy = collision.GetComponent<EnemyHealth>();
-        if (enemy != null)
-            enemy.TakeDamage(damage);
-        Destroy(gameObject);
-    }
+    void OnTriggerEnter2D(Collider2D collision){Destroy(gameObject);}
     #endregion
 }

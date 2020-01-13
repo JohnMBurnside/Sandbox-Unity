@@ -6,12 +6,19 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 5;
     int currentHealth;
     #endregion
+    //UNITY FUNCTIONS
     #region START FUNCTION
-    void Start()
+    void Start(){currentHealth = maxHealth;}
+    #endregion
+    #region ON TRIGGER ENTER 2D FUNCTION
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        currentHealth = maxHealth;
+        if (collision.gameObject.CompareTag("Player Arrow"))
+            TakeDamage(collision.gameObject.GetComponent<ArrowScript>().attackDamage);
     }
     #endregion
+    //ENEMY HEALTH FUNCTIONS
+    #region TAKE DAMAGE FUNCTION
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -22,4 +29,5 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 }

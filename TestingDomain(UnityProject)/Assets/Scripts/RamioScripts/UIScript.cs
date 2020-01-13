@@ -41,10 +41,7 @@ public class UIScript : MonoBehaviour
     }
     #endregion
     #region EXIT GAME FUNCTION
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
+    public void ExitGame(){Application.Quit();}
     #endregion
     #region RESUME FUNCTION
     public void Resume()

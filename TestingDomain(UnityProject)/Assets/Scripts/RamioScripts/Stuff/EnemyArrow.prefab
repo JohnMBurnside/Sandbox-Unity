@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6192561264014992958}
   - component: {fileID: 6192561264014992959}
   - component: {fileID: 2587910194707172822}
-  - component: {fileID: -2129824858284832112}
+  - component: {fileID: 5847699660401042813}
   m_Layer: 11
   m_Name: EnemyArrow
-  m_TagString: Enemy Bullet
+  m_TagString: Enemy Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.34560195
---- !u!114 &-2129824858284832112
+--- !u!114 &5847699660401042813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6192561264014992956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188e9e575a5e9b943ac6f6f0dcaadacd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b883ab2f92d0724e85353c1e7c5062b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 0

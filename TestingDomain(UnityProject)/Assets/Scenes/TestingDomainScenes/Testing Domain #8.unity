@@ -346,6 +346,7 @@ MonoBehaviour:
   firePoint: {fileID: 1439089641}
   engageRange: 6.17
   attackRate: 2
+  arrowSpeed: 10
   moveDir: {x: 1, y: 0}
   moveSpeed: 3
   paceDuration: 2
@@ -503,7 +504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762810115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.208, z: 0}
+  m_LocalPosition: {x: -5.76, y: 0.29, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1431864692}
@@ -618,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc5facc38b380846892dccad0064cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 9a3887f837485404b826f8977000cc3d, type: 2}
+  weapon: {fileID: 11400000, guid: 60b1fba2b7e13dd49a3e50977120a1f1, type: 2}
   attackDamage: 0
   attackPoint: {fileID: 23880044}
   attackRange: 0.28
@@ -628,7 +629,9 @@ MonoBehaviour:
   firePoint: {fileID: 234637604}
   arrowPrefab: {fileID: 6770054589341832096, guid: 43e1f9420f86b8a4bab83e95cd3cc93b,
     type: 3}
-  attackRate: 2
+  attackDelay: 2
+  attackTimer: 0
+  speed: 2
 --- !u!1 &820119344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1101,7 @@ GameObject:
   m_Layer: 9
   m_Name: FirePoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

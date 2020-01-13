@@ -34,26 +34,31 @@ public class PlayerHealth : MonoBehaviour
     #region ON COLLISION ENTER 2D
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "enemy")
-        {
-            currentHealth--;
-            if(currentHealth < 1)
-            {
-                PlayerPrefs.SetInt("lives", lives - 1);
-                lives = PlayerPrefs.GetInt("lives");
-                if (lives < 0)
-                    SceneManager.LoadScene("Game Over");
-                else
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-        }
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "enemy")
+            TakeDamage(1);
     }
+    #region ON TRIGGER ENTER 2D
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy Arrow")
+            TakeDamage(collision.gameObject.GetComponent<ArrowScript>().attackDamage);        
+    }
+    #endregion
     #endregion
     //PLAYER HEALTH FUNCTIONS
     #region TAKE DAMAGE FUNCTION
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if (currentHealth < 1)
+        {
+            PlayerPrefs.SetInt("lives", lives - 1);
+            lives = PlayerPrefs.GetInt("lives");
+            if (lives < 0)
+                SceneManager.LoadScene("Game Over");
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
     #endregion
 }

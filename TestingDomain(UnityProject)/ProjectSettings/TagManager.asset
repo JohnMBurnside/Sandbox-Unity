@@ -12,6 +12,8 @@ TagManager:
   - Enemy Bullet
   - Death
   - NextScene
+  - Player Arrow
+  - Enemy Arrow
   layers:
   - Default
   - TransparentFX

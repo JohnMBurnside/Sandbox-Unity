@@ -57,10 +57,7 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
     #region ON TRIGGER EXIT 2D FUNCTION
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        grounded &= collision.gameObject.layer != 0;
-    }
+    void OnTriggerExit2D(Collider2D collision){grounded &= collision.gameObject.layer != 0;}
     #endregion
     //MOVEMENT FUNCTIONS
     #region FLIP FUNCTION
