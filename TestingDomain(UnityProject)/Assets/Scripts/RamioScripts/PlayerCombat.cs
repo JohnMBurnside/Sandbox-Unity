@@ -26,6 +26,7 @@ public class PlayerCombat : MonoBehaviour
             attackDamage = weapon.damage;
     }
     #endregion
+    #region UPDATE FUNCTION
     void Update()
     {
         attackTimer += Time.deltaTime;
@@ -33,6 +34,7 @@ public class PlayerCombat : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Mouse0))
                 Attack();
     }
+    #endregion
     #region ON DRAW GIZMO SELECTED FUNCTION
     void OnDrawGizmosSelected()
     {
