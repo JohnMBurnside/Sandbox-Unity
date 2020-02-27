@@ -1,10 +1,10 @@
-﻿/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveFunction : MonoBehaviour
 {
-    public void SavePlayer()
+    /*public void SavePlayer()
     {
         SaveGame.SavePlayer(this);
     }
@@ -14,5 +14,5 @@ public class SaveFunction : MonoBehaviour
         level = data.level;
         health = data.health;
         Vector3 position;
-    }
-}*/
+    }*/
+}
