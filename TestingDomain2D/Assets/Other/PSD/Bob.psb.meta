@@ -61,6 +61,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -2672,30 +2673,8 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs:
-  - go: {fileID: 7319619307396595536, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 0
-  - go: {fileID: -2689809043724857975, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 1
-  - go: {fileID: -6836987318688335316, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 2
-  - go: {fileID: -6138217520485382893, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 3
-  - go: {fileID: 3490920488283110073, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 4
-  - go: {fileID: 3236834295535187624, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 5
-  - go: {fileID: -3547143836360421936, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 6
-  - go: {fileID: 5580795190220728970, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 7
-  - go: {fileID: -3117426008242317307, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 8
-  - go: {fileID: 2699799533394114287, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 9
-  - go: {fileID: -1813048868747160960, guid: 7733e8d7de81ee940ad2f4745e34977b, type: 3}
-    index: 10
   generateGOHierarchy: 0
   textureAssetName: Bob Texture
   prefabAssetName: Bob Prefab
   spriteLibAssetName: Bob Sprite Lib
+  secondarySpriteTextures: []

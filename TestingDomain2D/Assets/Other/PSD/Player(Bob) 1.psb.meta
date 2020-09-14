@@ -61,6 +61,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -443,8 +444,8 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs: []
   generateGOHierarchy: 0
   textureAssetName: Player(Bob) 1 Texture
   prefabAssetName: Player(Bob) 1 Prefab
   spriteLibAssetName: Player(Bob) 1 Sprite Lib
+  secondarySpriteTextures: []
